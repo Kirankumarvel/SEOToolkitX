@@ -1,0 +1,9 @@
+content_optimizer/
+├── app.py                # Flask application
+├── utils/
+│   ├── seo_analyzer.py   # Core analysis functions
+│   └── openai_helper.py  # OpenAI API wrapper
+├── templates/
+│   └── index.html        # Web interface
+├── .env                  # API keys
+└── requirements.txt
