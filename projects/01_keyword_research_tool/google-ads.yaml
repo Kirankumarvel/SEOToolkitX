@@ -1,0 +1,8 @@
+# Required fields
+developer_token: "YOUR_DEVELOPER_TOKEN"
+client_id: "YOUR_CLIENT_ID"
+client_secret: "YOUR_CLIENT_SECRET"
+refresh_token: "YOUR_REFRESH_TOKEN"
+
+# Add this required field
+use_proto_plus: true  # or false, depending on your preference
