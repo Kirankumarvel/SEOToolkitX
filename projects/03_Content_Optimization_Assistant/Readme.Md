@@ -40,7 +40,7 @@ python -m spacy download en_core_web_sm
 ```
 
 
-### 3🔗 Dependencies Reference  
+### 2.🔗 Dependencies Reference  
 Add this `requirements.txt`:  
 ```
 flask==2.0.1
@@ -51,7 +51,7 @@ python-dotenv>=0.19.0
 textstat>=0.7.0
 ```
 
-### 2. Configuration  
+### 3. Configuration  
 Create a `.env` file:  
 ```ini
 OPENAI_API_KEY=your_api_key_here
