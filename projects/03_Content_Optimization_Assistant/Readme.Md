@@ -30,7 +30,7 @@
 ### 1. Installation  
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/SEOToolkitX.git
+git clone https://github.com/Kirankumarvel/SEOToolkitX.git
 cd SEOToolkitX/projects/03_content_optimizer
 
 # Install dependencies
@@ -39,8 +39,20 @@ python -m nltk.downloader punkt
 python -m spacy download en_core_web_sm
 ```
 
+
+### 3🔗 Dependencies Reference  
+Add this `requirements.txt`:  
+```
+flask==2.0.1
+openai>=0.27.0
+nltk>=3.6.2
+spacy>=3.0.0
+python-dotenv>=0.19.0
+textstat>=0.7.0
+```
+
 ### 2. Configuration  
-Create `.env` file:  
+Create a `.env` file:  
 ```ini
 OPENAI_API_KEY=your_api_key_here
 ```
@@ -49,13 +61,13 @@ OPENAI_API_KEY=your_api_key_here
 ```bash
 python app.py
 ```
-Visit `http://localhost:5000` in your browser  
+Visit [http://localhost:5000](http://localhost:5000) in your browser  
 
 ---
 
 ## 📊 Sample Analysis  
 ![Screenshot](docs/sample-analysis.png)  
-*(Include actual screenshot in your `/docs` folder)*  
+*(Place an actual screenshot in your `/docs` folder)*  
 
 ---
 
@@ -66,12 +78,10 @@ Visit `http://localhost:5000` in your browser
    - Checks HTML meta tags via regex  
 
 2. **AI Optimization**  
-   ```python
    GPT-3.5 suggests improvements for:
    - Keyword placement  
    - Content structure  
    - Meta tag optimization  
-   ```
 
 3. **Web Interface**  
    - Single-page application  
@@ -99,7 +109,7 @@ Visit `http://localhost:5000` in your browser
 
 ## 🤝 Contributing  
 1. Fork the repository  
-2. Create feature branch (`git checkout -b feature/improvement`)  
+2. Create a feature branch (`git checkout -b feature/improvement`)  
 3. Submit a Pull Request  
 
 ---
@@ -111,8 +121,6 @@ MIT License - Free for commercial and personal use
 
 ## 💡 Pro Tip  
 Combine with other [SEOToolkitX](https://github.com/Kirankumarvel/SEOToolkitX) tools for end-to-end SEO workflow automation!
-
-```
 
 ---
 
@@ -131,3 +139,4 @@ spacy>=3.0.0
 python-dotenv>=0.19.0
 textstat>=0.7.0
 ```
+---
