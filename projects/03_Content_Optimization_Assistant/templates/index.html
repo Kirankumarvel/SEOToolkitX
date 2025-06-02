@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SEO Content Optimizer</title>
+</head>
+<body>
+    <h1>Content Optimization Assistant</h1>
+    <form id="seoForm">
+        <textarea name="content" placeholder="Paste your content here..." rows="10" cols="50"></textarea><br>
+        <input type="text" name="keyword" placeholder="Target keyword"><br>
+        <button type="submit">Analyze</button>
+    </form>
+    <div id="results"></div>
+
+    <script>
+        document.getElementById('seoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const response = await fetch('/', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            
+            document.getElementById('results').innerHTML = `
+                <h2>Analysis Results</h2>
+                <p><strong>Keyword Density:</strong> ${data.analysis.keyword_density}%</p>
+                <p><strong>Readability Score:</strong> ${data.analysis.readability_score}</p>
+                <p><strong>Title Tag:</strong> ${data.analysis.title_exists ? '✅ Found' : '❌ Missing'}</p>
+                <p><strong>Meta Description:</strong> ${data.analysis.meta_description_exists ? '✅ Found' : '❌ Missing'}</p>
+                <h3>AI Suggestions</h3>
+                <p>${data.ai_suggestions.replace('\n', '<br>')}</p>
+            `;
+        });
+    </script>
+</body>
+</html>
