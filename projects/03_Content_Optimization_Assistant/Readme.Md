@@ -40,18 +40,9 @@ python -m spacy download en_core_web_sm
 ```
 
 
-### 2.🔗 Dependencies Reference  
-Add this `requirements.txt`:  
-```
-flask==2.0.1
-openai>=0.27.0
-nltk>=3.6.2
-spacy>=3.0.0
-python-dotenv>=0.19.0
-textstat>=0.7.0
-```
 
-### 3. Configuration  
+
+### 2. Configuration  
 Create a `.env` file:  
 ```ini
 OPENAI_API_KEY=your_api_key_here
@@ -122,21 +113,3 @@ MIT License - Free for commercial and personal use
 ## 💡 Pro Tip  
 Combine with other [SEOToolkitX](https://github.com/Kirankumarvel/SEOToolkitX) tools for end-to-end SEO workflow automation!
 
----
-
-### 🎨 Recommended Enhancements  
-1. Add a **screenshot** in `/docs/sample-analysis.png`  
-2. Include a demo video link  
-3. Add a "Deploy to Heroku" button  
-
-### 🔗 Dependencies Reference  
-Add this `requirements.txt`:  
-```
-flask==2.0.1
-openai>=0.27.0
-nltk>=3.6.2
-spacy>=3.0.0
-python-dotenv>=0.19.0
-textstat>=0.7.0
-```
----
