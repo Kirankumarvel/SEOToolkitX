@@ -34,12 +34,10 @@ A Python-based toolkit for technical SEO auditing. This tool analyzes websites f
 ---
 
 ## Installation
-
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/Kirankumarvel/05_Technical_SEO_Auditor.git
-    cd 05_Technical_SEO_Auditor
-    ```
+1. **Installation:**
+git clone https://github.com/Kirankumarvel/SEOToolkitX.git
+cd SEOToolkitX/projects/05_Technical_SEO_Auditor
+---
 
 2. **Install dependencies:**
     ```bash
