@@ -1,21 +1,21 @@
-# Technical SEO Auditor
+# 05_Technical_SEO_Auditor
 
-A Python-based toolkit for technical SEO auditing. This tool analyzes websites for key SEO factors—such as mobile-friendliness, page speed (via Lighthouse metrics), and broken link detection—and generates comprehensive CSV reports for easy review and follow-up.
+A Python-based technical SEO auditing toolkit that analyzes websites for key SEO factors such as mobile-friendliness, page speed (using Lighthouse metrics), and broken link detection. The tool generates comprehensive CSV reports for straightforward review and actionable insights.
 
 ---
 
 ## Features
 
-- **Mobile Friendliness Check:**  
+- **Mobile Friendliness Check**  
   Detects whether a webpage includes a viewport meta tag, indicating mobile-friendly design.
 
-- **Page Speed & Performance Metrics:**  
+- **Page Speed & Performance Metrics**  
   Retrieves Lighthouse audit metrics for performance, accessibility, SEO, and more.
 
-- **Broken Link Checker:**  
-  Crawls a single page to identify broken links (HTTP status codes 400 and above).
+- **Broken Link Checker**  
+  Crawls a single page to identify broken links (links returning HTTP status codes 400 and above).
 
-- **CSV Report Generation:**  
+- **CSV Report Generation**  
   Saves audit results as timestamped CSV files in the `reports/` directory for easy reference.
 
 ---
@@ -23,7 +23,7 @@ A Python-based toolkit for technical SEO auditing. This tool analyzes websites f
 ## File Overview
 
 - `auditor.py`  
-  Main runner script; orchestrates all checks, calls supporting modules, and saves results.
+  Main runner script that orchestrates checks, calls supporting modules, and saves results.
 
 - `broken_link_checker.py`  
   Functions for identifying and saving broken links found on webpages.
@@ -34,11 +34,12 @@ A Python-based toolkit for technical SEO auditing. This tool analyzes websites f
 ---
 
 ## Installation
-1. **Installation:**
-git clone https://github.com/Kirankumarvel/SEOToolkitX.git
 
-cd SEOToolkitX/projects/05_Technical_SEO_Auditor
----
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/Kirankumarvel/SEOToolkitX.git
+    cd SEOToolkitX/projects/05_Technical_SEO_Auditor
+    ```
 
 2. **Install dependencies:**
     ```bash
@@ -70,10 +71,10 @@ python auditor.py
   Uses `get_lighthouse_metrics(url)` from `lighthouse.py` to retrieve performance scores.
 
 - **Broken Links:**  
-  Parses all `<a>` tags and checks link responses for error status codes (400+).
+  Parses all `<a>` tags on the page and checks link responses for error status codes (400+).
 
 - **Reporting:**  
-  Each audit generates three CSV files, saved in `reports/`, with filenames based on domain and timestamp:
+  Each audit generates three CSV files, saved in `reports/`, with filenames based on the domain and timestamp:
     - Mobile friendliness results
     - Lighthouse performance metrics
     - Broken links list
@@ -109,13 +110,15 @@ Sample console summary:
 
 ## Notes
 
-- The `get_lighthouse_metrics()` function must be implemented or linked to a Lighthouse API/CLI wrapper.
+- The Lighthouse metrics function `get_lighthouse_metrics()` must be implemented or linked to a Lighthouse API/CLI wrapper.
 - The broken link checker uses HEAD requests, with fallback to GET requests for robustness.
-- Designed for single-page audits; multi-page crawling could be added in future versions.
+- Designed for single-page audits. Multi-page crawling could be added in future versions.
 
 ---
 
 ## License
 
 MIT License — feel free to use and modify for your SEO auditing needs.
+
+---
 
