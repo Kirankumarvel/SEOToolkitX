@@ -39,7 +39,7 @@ A Python-based technical SEO auditing toolkit to analyze websites for key SEO fa
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/05_Technical_SEO_Auditor.git
+   git clone https://github.com/Kirankumarvel/05_Technical_SEO_Auditor.git
    cd 05_Technical_SEO_Auditor
    ```
 
