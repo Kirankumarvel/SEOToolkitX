@@ -1,89 +1,83 @@
+# Technical SEO Auditor
 
-# 05\_Technical\_SEO\_Auditor
-
-A Python-based technical SEO auditing toolkit to analyze websites for key SEO factors such as mobile-friendliness, page speed (using Lighthouse metrics), and broken link detection. The tool generates comprehensive CSV reports for easy review and follow-up action.
+A Python-based toolkit for technical SEO auditing. This tool analyzes websites for key SEO factors—such as mobile-friendliness, page speed (via Lighthouse metrics), and broken link detection—and generates comprehensive CSV reports for easy review and follow-up.
 
 ---
 
 ## Features
 
-* **Mobile Friendliness Check**
-  Detects if a webpage contains a viewport meta tag indicating mobile-friendly design.
+- **Mobile Friendliness Check:**  
+  Detects whether a webpage includes a viewport meta tag, indicating mobile-friendly design.
 
-* **Page Speed & Performance Metrics**
+- **Page Speed & Performance Metrics:**  
   Retrieves Lighthouse audit metrics for performance, accessibility, SEO, and more.
 
-* **Broken Link Checker**
-  Crawls a single page to identify broken links (links returning HTTP status codes 400 and above).
+- **Broken Link Checker:**  
+  Crawls a single page to identify broken links (HTTP status codes 400 and above).
 
-* **CSV Report Generation**
-  Saves audit results into timestamped CSV files in a `reports/` folder for easy reference.
+- **CSV Report Generation:**  
+  Saves audit results as timestamped CSV files in the `reports/` directory for easy reference.
 
 ---
 
-## Files
+## File Overview
 
-* `auditor.py`
-  Main audit runner that orchestrates checks, calls other modules, and saves results.
+- `auditor.py`  
+  Main runner script; orchestrates all checks, calls supporting modules, and saves results.
 
-* `broken_link_checker.py`
-  Contains functions to find and save broken links on a given webpage.
+- `broken_link_checker.py`  
+  Functions for identifying and saving broken links found on webpages.
 
-* `lighthouse.py`
-  Handles mobile check and manages Lighthouse metrics retrieval and CSV saving.
+- `lighthouse.py`  
+  Manages mobile checks, Lighthouse metrics retrieval, and CSV output.
 
 ---
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/Kirankumarvel/05_Technical_SEO_Auditor.git
+    cd 05_Technical_SEO_Auditor
+    ```
 
-   ```bash
-   git clone https://github.com/Kirankumarvel/05_Technical_SEO_Auditor.git
-   cd 05_Technical_SEO_Auditor
-   ```
-
-2. Install required dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-   *Dependencies include:* `requests`, `beautifulsoup4`
+2. **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+    <sub>Dependencies include: `requests`, `beautifulsoup4`</sub>
 
 ---
 
 ## Usage
 
-Run the audit by executing the main script:
+Run the audit with:
 
 ```bash
 python auditor.py
 ```
 
-By default, it audits `https://example.com`. To audit another URL, modify the `url` variable in `auditor.py` or integrate argument parsing.
+- By default, the tool audits `https://example.com`.
+- To audit a different URL, modify the `url` variable in `auditor.py`, or add argument parsing as needed.
 
 ---
 
 ## How It Works
 
-* **Mobile Friendliness**
-  Checks presence of a viewport meta tag by requesting the page with a mobile user-agent.
+- **Mobile Friendliness:**  
+  Checks for a viewport meta tag by fetching the page with a mobile user-agent.
 
-* **Lighthouse Metrics**
-  Calls `get_lighthouse_metrics(url)` from `lighthouse.py` (assumed implemented) to retrieve performance scores.
+- **Lighthouse Metrics:**  
+  Uses `get_lighthouse_metrics(url)` from `lighthouse.py` to retrieve performance scores.
 
-* **Broken Links**
-  Parses all anchor tags (`<a>`) on the page and checks if links respond with status codes indicating errors (400+).
+- **Broken Links:**  
+  Parses all `<a>` tags and checks link responses for error status codes (400+).
 
-* **Reporting**
-  Generates three CSV files per audit:
-
-  * Mobile friendliness result
-  * Lighthouse performance metrics
-  * Broken links list
-
-These are saved under the `reports/` directory with filenames based on the audited domain and timestamp.
+- **Reporting:**  
+  Each audit generates three CSV files, saved in `reports/`, with filenames based on domain and timestamp:
+    - Mobile friendliness results
+    - Lighthouse performance metrics
+    - Broken links list
 
 ---
 
@@ -97,7 +91,6 @@ Saved results to:
 ```
 
 Sample console summary:
-
 ```json
 {
   "mobile_friendly": true,
@@ -117,9 +110,9 @@ Sample console summary:
 
 ## Notes
 
-* The Lighthouse metric fetching function `get_lighthouse_metrics()` must be properly implemented or linked to an existing Lighthouse API or CLI wrapper.
-* The broken link checker uses HEAD requests with fallback GET requests for robustness.
-* Designed for single-page audits; multi-page crawling can be added in future versions.
+- The `get_lighthouse_metrics()` function must be implemented or linked to a Lighthouse API/CLI wrapper.
+- The broken link checker uses HEAD requests, with fallback to GET requests for robustness.
+- Designed for single-page audits; multi-page crawling could be added in future versions.
 
 ---
 
@@ -127,6 +120,3 @@ Sample console summary:
 
 MIT License — feel free to use and modify for your SEO auditing needs.
 
----
-
-If you want, I can help you add argument parsing or enhance the README with examples on how to extend this tool. Just let me know!
