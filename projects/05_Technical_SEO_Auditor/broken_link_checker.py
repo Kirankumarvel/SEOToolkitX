@@ -72,7 +72,7 @@ def save_broken_links_to_csv(base_url: str, broken_links: list[str], output_dir=
 
 
 if __name__ == "__main__":
-    base_url = "https://kirankumarvel.wordpress.com/"
+    base_url = "https://www.examples.com/"
     broken_links = find_broken_links(base_url)
 
     if broken_links:
