@@ -1,98 +1,115 @@
-# 🔍 SEOToolkitX  
-**A Python-powered SEO Automation Suite for Data-Driven Marketers**  
-*Automate, Analyze, and Optimize SEO workflows with Python*  
 
-![SEO Python Toolkit](https://img.shields.io/badge/Python-3.8%2B-blue) ![SEO Automation](https://img.shields.io/badge/SEO-Automation-green) ![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen)
+# 🗺️ XML Sitemap Generator
 
----
+A lightweight, dependency‑simple Python tool to generate XML sitemaps from a list of URLs.  
+Automatically splits large URL lists into multiple sitemap files and creates a sitemap index when needed – fully compliant with Google’s sitemap specifications.
 
-## 🚀 **Overview**  
-SEOToolkitX is a collection of **12 Python scripts/tools** designed to automate and enhance SEO tasks—from keyword research to technical audits. Built for SEO professionals who code, it combines **Python’s scalability** with **SEO best practices**.
+## ✨ Features
 
----
+- ✅ **Single or multiple sitemaps** – Handles up to 50,000 URLs per file (Google’s limit) and creates a `sitemap_index.xml` if you exceed it.
+- ✅ **Absolute & relative URLs** – Add a `--base-url` to automatically prefix relative paths.
+- ✅ **Clean, well‑formatted XML** – Uses `lxml` for standard‑compliant output.
+- ✅ **No external APIs** – Pure Python, runs offline.
+- ✅ **Ready for CI/CD** – Easily integrate into build pipelines or cron jobs.
 
-## 📂 **Project Structure**  
+## 📦 Installation
+
 ```bash
-SEOToolkitX/
-├── projects/               # All 12 projects as subdirectories
-│   ├── 01_keyword_research_tool/
-│   ├── 02_backlink_analyzer/
-│   └── ... 
-├── utils/                  # Shared utilities (API clients, helpers)
-├── docs/                   # Tutorials, screenshots
-├── requirements.txt        # Common dependencies
-└── LICENSE
+# Clone the repository (or copy the project folder)
+git clone https://github.com/Kirankumarvel/SEOToolkitX.git
+cd SEOToolkitX/projects/12_XML_SITEMAP_GENERATOR
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
----
+## 🚀 Usage
 
-## 🛠️ **Projects List**  
+Prepare a text file with one URL per line (see `data/urls.txt` for an example). Then run:
 
-| #  | Project Title               | Tech Stack                          | Key Features                              | Status     |
-|----|-----------------------------|-------------------------------------|-------------------------------------------|------------|
-| 01 | **Keyword Research Tool**   | Google API, Pandas, NLTK            | Extracts keywords, volume, competition   | ✅ Live    |
-| 02 | **Backlink Analyzer**       | Scrapy, MongoDB, Flask              | Scrapes competitor backlinks + DA/PA     | 🚧 WIP     |
-| 03 | **Content Optimizer**       | SpaCy, OpenAI API                   | Suggests SEO edits for content           | Planned    |
-| 04 | **Rank Tracker**            | Selenium, SQLite                    | Tracks SERP rankings daily               | Planned    |
-| 05 | **Technical SEO Auditor**   | Lighthouse API, BeautifulSoup       | Checks broken links, speed, mobile-friendliness | Planned    |
-| 06 | **SEO Report Generator**    | Pandas, Google Analytics API, PDFKit| Auto-generates PDF/Excel reports         | Planned    |
-| 07 | **Google Trends Analyzer**  | Pytrends, Plotly                    | Visualizes keyword trends over time      | Planned    |
-| 08 | **Meta Tag Generator**      | Jinja2, OpenAI API                  | Creates optimized meta titles/descriptions | Planned    |
-| 09 | **Competitor Gap Analyzer** | Scrapy, Google Search Console API   | Finds missing keywords vs competitors    | Planned    |
-| 10 | **URL Slug Generator**      | Slugify, FastAPI                    | Converts titles to SEO-friendly URLs     | Planned    |
-| 11 | **Local SEO Scraper**       | Selenium, Google Maps API           | Extracts local business listings         | Planned    |
-| 12 | **XML Sitemap Generator**   | lxml, Cron                          | Auto-generates/updates sitemaps          | Planned    |
+```bash
+python run.py data/urls.txt
+```
 
----
+If your URLs are relative (e.g., `/about`, `/contact`), add a base URL:
 
-## 🔧 **Setup & Installation**  
-1. **Clone the repo**:  
-   ```bash
-   git clone https://github.com/yourusername/SEOToolkitX.git
-   cd SEOToolkitX
-   ```
+```bash
+python run.py data/urls.txt --base-url https://example.com
+```
 
-2. **Install dependencies**:  
-   ```bash
-   pip install -r requirements.txt
-   ```
+Generated sitemap(s) will be saved in the `output/` folder.
 
-3. **Configure APIs**:  
-   - Add Google API keys in `utils/config.py`.  
-   - Set up MongoDB for the Backlink Analyzer (if needed).  
+### Example
 
----
+**Input file (`urls.txt`):**
+```
+https://example.com/
+https://example.com/about
+https://example.com/contact
+```
 
-## 📌 **How to Contribute**  
-1. **Fork the repository**.  
-2. Pick a project from the roadmap (e.g., `04_rank_tracker`).  
-3. Submit a PR with:  
-   - Code in `/projects/subfolder`.  
-   - Updated `README.md` with usage examples.  
+**Command:**
+```bash
+python run.py data/urls.txt
+```
 
----
+**Output (`output/sitemap_1.xml`):**
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://example.com/</loc>
+  </url>
+  <url>
+    <loc>https://example.com/about</loc>
+  </url>
+  <url>
+    <loc>https://example.com/contact</loc>
+  </url>
+</urlset>
+```
 
-## 🗺️ **Roadmap**  
-- **Phase 1 (MVP)**: Release Keyword Tool + Backlink Analyzer (Q1 2025).  
-- **Phase 2**: Add Rank Tracker + Content Optimizer (Q2 2025).  
-- **Phase 3**: Expand to all 12 tools (End of 2025).  
+## 🔧 Configuration
 
----
+Edit `config.py` to adjust these settings:
 
-## 📜 **License**  
-MIT License - Free for commercial and personal use.  
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `MAX_URLS_PER_SITEMAP` | 50000 | Max URLs per sitemap file (Google’s limit) |
+| `OUTPUT_DIR` | `output` | Directory where sitemaps are saved |
+| `SITEMAP_NAMESPACE` | `http://www.sitemaps.org/schemas/sitemap/0.9` | XML namespace (do not change unless required) |
 
----
+## 📂 Project Structure
 
-## ❓ **FAQ**  
-**Q: Can I use this for client work?**  
-A: Yes! Automate your agency workflows freely.  
+```
+xml_sitemap_generator/
+├── sitemap_generator/       # Core package
+│   ├── __init__.py
+│   ├── core.py              # Generation logic
+│   └── cli.py               # Command‑line interface
+├── data/                    # Example input
+│   └── urls.txt
+├── output/                  # Generated sitemaps (auto‑created)
+├── config.py                # Settings
+├── requirements.txt         # Dependencies
+├── run.py                   # Entry point
+└── README.md                # This file
+```
 
-**Q: How do I request a new feature?**  
-A: Open a GitHub Issue with the `enhancement` label.  
+## 🧪 Extending
 
----
+You can easily add `<lastmod>`, `<changefreq>`, and `<priority>` tags.  
+In `sitemap_generator/core.py`, inside the `generate_sitemap` function, uncomment and modify:
 
-## ✨ **Show Your Support**  
-Star ⭐ the repo if you find it useful!  
-``` 
+```python
+lastmod = etree.SubElement(url_elem, "lastmod")
+lastmod.text = datetime.now().date().isoformat()
+```
+
+## 🤝 Contributing
+
+Feel free to open issues or pull requests in the [main SEOToolkitX repository](https://github.com/Kirankumarvel/SEOToolkitX).
+
+## 📄 License
+
+This project is part of SEOToolkitX – see the main repository for license information.
