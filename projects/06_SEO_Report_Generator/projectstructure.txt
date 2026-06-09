@@ -1,0 +1,9 @@
+seo_report_generator/
+├── seo_report_generator.py   # Main script
+├── config.yaml               # API credentials & thresholds (optional)
+├── requirements.txt
+├── sample_data/              # Example input files
+│   ├── onpage_audit.csv
+│   ├── ga_data.csv
+│   └── gsc_data.csv
+└── README.md
